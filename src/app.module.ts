@@ -1,8 +1,11 @@
 import { Module } from '@nestjs/common';
-
+import { TranscriptionModule } from './transcription/transcription.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [],
+  imports: [TranscriptionModule,ConfigModule.forRoot({
+    envFilePath: '.env.development',isGlobal:true,
+  })],
   controllers: [],
   providers: [],
 })
